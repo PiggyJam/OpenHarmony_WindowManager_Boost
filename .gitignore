@@ -1,31 +1,27 @@
-# MkDocs build output
-site/
-.sass-cache/
+# Docusaurus build output
+website/build/
+website/.docusaurus
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+website/node_modules/
+website/package-lock.json
+website/yarn.lock
+
+# Production
+website/build
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # IDE
 .vscode/
@@ -35,7 +31,6 @@ wheels/
 *~
 
 # OS
-.DS_Store
 Thumbs.db
 
 # Code index
@@ -47,3 +42,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Obsidian
+.obsidian/
