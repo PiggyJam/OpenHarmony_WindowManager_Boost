@@ -1,0 +1,400 @@
+/* ========================================
+   Technical Blueprint Animations
+   ======================================== */
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow:
+      0 0 5px rgba(59, 130, 246, 0.3),
+      0 0 10px rgba(59, 130, 246, 0.2),
+      0 0 20px rgba(59, 130, 246, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 10px rgba(59, 130, 246, 0.5),
+      0 0 20px rgba(59, 130, 246, 0.3),
+      0 0 40px rgba(59, 130, 246, 0.2);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* ========================================
+   Page Load Animations
+   ======================================== */
+
+.md-content {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.md-content > * {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.md-content > *:nth-child(1) { animation-delay: 0.1s; }
+.md-content > *:nth-child(2) { animation-delay: 0.2s; }
+.md-content > *:nth-child(3) { animation-delay: 0.3s; }
+.md-content > *:nth-child(4) { animation-delay: 0.4s; }
+.md-content > *:nth-child(5) { animation-delay: 0.5s; }
+.md-content > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* h1 underline animation */
+h1::after {
+  animation: drawLine 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* Sidebar items stagger animation */
+.md-nav__item {
+  opacity: 0;
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+.md-nav__item:nth-child(1) { animation-delay: 0.05s; }
+.md-nav__item:nth-child(2) { animation-delay: 0.1s; }
+.md-nav__item:nth-child(3) { animation-delay: 0.15s; }
+.md-nav__item:nth-child(4) { animation-delay: 0.2s; }
+.md-nav__item:nth-child(5) { animation-delay: 0.25s; }
+.md-nav__item:nth-child(6) { animation-delay: 0.3s; }
+.md-nav__item:nth-child(n+7) { animation-delay: 0.35s; }
+
+/* ========================================
+   Hover Animations
+   ======================================== */
+
+/* Card lift effect */
+.bp-card,
+.admonition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bp-card:hover {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Link underline animation */
+a {
+  background-image: linear-gradient(
+    90deg,
+    var(--bp-info),
+    var(--bp-info)
+  );
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease;
+}
+
+a:hover {
+  background-size: 100% 1px;
+}
+
+/* Code block hover */
+pre:hover {
+  border-color: var(--bp-accent);
+  box-shadow: var(--bp-shadow-glow);
+}
+
+/* Button hover effect */
+.md-header__button,
+.md-nav__link {
+  position: relative;
+  overflow: hidden;
+}
+
+.md-header__button::before,
+.md-nav__link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.3), transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.md-header__button:hover::before,
+.md-nav__link:hover::before {
+  width: 200%;
+  height: 200%;
+}
+
+/* ========================================
+   Scroll Animations
+   ======================================== */
+
+/* Intersection observer animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   Loading States
+   ======================================== */
+
+.bp-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.bp-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ========================================
+   Pulse Effects
+   ======================================== */
+
+.bp-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.bp-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Technical Decorations
+   ======================================== */
+
+/* Corner brackets for code elements */
+pre::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid var(--bp-border);
+  border-radius: var(--bp-radius-sm);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Connection dots for visual interest */
+.bp-connection-point {
+  width: 8px;
+  height: 8px;
+  background: var(--bp-accent);
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 0 10px var(--bp-accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Dark mode specific animations
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  .md-content {
+    animation: fadeInUp 0.6s ease-out,
+               glow 3s ease-in-out infinite;
+  }
+
+  /* Scanline effect for dark mode */
+  .md-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(59, 130, 246, 0.3),
+      transparent
+    );
+    animation: scanline 8s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+/* ========================================
+   Reduced motion support
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   Print styles
+   ======================================== */
+
+@media print {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

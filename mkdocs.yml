@@ -1,0 +1,186 @@
+# MkDocs configuration for OpenHarmony WindowManager Boost
+# Theme: Custom "Technical Blueprint" style
+
+site_name: OpenHarmony WindowManager Boost
+site_description: AI 辅助的 OpenHarmony WindowManager 子系统开发平台
+site_author: OpenHarmony Community
+repo_url: https://github.com/xxx/OpenHarmony_WindowManager_Boost
+repo_name: OpenHarmony_WindowManager_Boost
+
+# Copyright footer
+copyright: Copyright &copy; 2024 OpenHarmony Community
+
+# Theme configuration
+theme:
+  name: material
+  custom_dir: overrides
+  language: zh
+  palette:
+    # Light mode - Engineering blueprint style
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue-grey
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode - Code editor style
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue-grey
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: 'JetBrains Mono'  # Monospace for developer feel
+    code: 'JetBrains Mono'
+  features:
+    - navigation.instant      # Instant loading
+    - navigation.tracking     # URL position tracking
+    - navigation.tabs         # Top-level tabs
+    - navigation.sections     # Section navigation
+    - navigation.expand       # Expand sections by default
+    - navigation.indexes      # Create index pages
+    - search.suggest          # Search suggestions
+    - search.highlight        # Highlight search terms
+    - content.code.copy       # Copy code button
+    - content.tabs.link       # Link tabs
+    - toc.follow              # TOC follows scroll
+  icon:
+    logo: material/code-tags-check
+    repo: fontawesome/brands/github
+
+# Plugins
+plugins:
+  - search:
+      lang:
+        - en
+        - zh
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+  - social:
+      cards: true
+      cards_color:
+        fill: "#0A1929"
+        text: "#E0E0E0"
+
+# Custom CSS for Technical Blueprint style
+extra_css:
+  - stylesheets/blueprint.css
+  - stylesheets/animations.css
+  - stylesheets/syntax.css
+
+# Custom JavaScript for interactions
+extra_javascript:
+  - javascripts/connections.js
+  - javascripts/cursor.js
+
+# Extensions
+markdown_extensions:
+  - abbr                      # Abbreviations
+  - admonition                # Admonitions (notes, warnings)
+  - attr_list                 # Attribute lists
+  - def_list                  # Definition lists
+  - footnotes                 # Footnotes
+  - md_in_html                # Markdown in HTML
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatix:      # Math expressions
+      generic: true
+  - pymdownx.betterem:        # Better emphasis
+      smart_enable: all
+  - pymdownx.caret            # Caret marks
+  - pymdownx.details          # Details/summary elements
+  - pymdownx.emoji:           # Emojis
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:       # Code highlighting
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite     # Inline code highlighting
+  - pymdownx.keys:            # Keyboard keys
+      keys_separator: " + "
+  - pymdownx.mark             # Mark text
+  - pymdownx.smartsymbols     # Smart symbols
+  - pymdownx.superfences:     # Nested fences
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:          # Tabbed content
+      alternate_style: true
+  - pymdownx.tasklist:        # Task lists
+      custom_checkbox: true
+  - pymdownx.tilde            # Strikethrough
+
+# Page tree structure
+nav:
+  - Home:
+    - index.md
+  - Wiki:
+    - wiki/index.md
+    - Architecture:
+        - wiki/architecture/overview.md
+        - wiki/architecture/modules.md
+        - wiki/architecture/communication.md
+    - Modules:
+        - wiki/modules/window.md
+        - wiki/modules/display.md
+        - wiki/modules/input.md
+    - APIs:
+        - wiki/apis/window-api.md
+        - wiki/apis/display-api.md
+  - Skills:
+    - skills/index.md
+    - Navigation:
+        - skills/navigation/find-module.md
+        - skills/navigation/explain-class.md
+        - skills/navigation/trace-call.md
+    - Development:
+        - skills/development/create-feature.md
+        - skills/development/fix-bug.md
+        - skills/development/submit-pr.md
+    - Documentation:
+        - skills/documentation/generate-api-doc.md
+        - skills/documentation/create-diagram.md
+  - Agents:
+    - agents/index.md
+    - agents/analyzer.md
+    - agents/tester.md
+    - agents/doc-sync.md
+  - Blog:
+    - blog/index.md
+    - blog/2024-02-initial-setup.md
+
+# Extra variables for templates
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/xxx/OpenHarmony_WindowManager_Boost
+      name: GitHub
+    - icon: fontawesome/brands/gitter
+      link: https://gitter.im/xxx/room
+      name: Gitter
+  version:
+    provider: mike
+    default: latest
+  analytics:
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: Thanks for the feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: Thanks for the feedback! Help us improve this page by
+            <a href="https://github.com/xxx/OpenHarmony_WindowManager_Boost/issues/new"
+            target="_blank">creating an issue</a>.
