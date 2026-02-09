@@ -13,7 +13,6 @@ copyright: Copyright &copy; 2024 OpenHarmony Community
 # Theme configuration
 theme:
   name: material
-  custom_dir: overrides
   language: zh
   palette:
     # Light mode - Engineering blueprint style
