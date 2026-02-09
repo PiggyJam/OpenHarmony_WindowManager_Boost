@@ -62,11 +62,6 @@ plugins:
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
-  - social:
-      cards: true
-      cards_color:
-        fill: "#0A1929"
-        text: "#E0E0E0"
 
 # Custom CSS for Technical Blueprint style
 extra_css:
